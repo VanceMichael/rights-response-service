@@ -1,0 +1,87 @@
+{
+  "synthetic": true,
+  "commands": [
+    {
+      "id": "restrict-A",
+      "operation": "restrict",
+      "refs": [
+        "claim-A",
+        "post-A"
+      ],
+      "request": {
+        "publication": "post-A",
+        "regions": [
+          "east",
+          "south"
+        ],
+        "range_ms": [
+          0,
+          60000
+        ]
+      },
+      "response_status": 504,
+      "observations": [
+        {
+          "state": "pending"
+        },
+        {
+          "state": "restricted",
+          "platform_revision": 12,
+          "at": "2026-12-07T10:00:00+08:00"
+        }
+      ]
+    },
+    {
+      "id": "restore-A",
+      "operation": "restore",
+      "refs": [
+        "post-A"
+      ],
+      "request": {
+        "publication": "post-A",
+        "regions": [
+          "east"
+        ],
+        "range_ms": [
+          0,
+          60000
+        ]
+      },
+      "response_status": 504,
+      "observations": [
+        {
+          "state": "pending"
+        },
+        {
+          "state": "restored",
+          "platform_revision": 13,
+          "at": "2026-12-10T12:00:00+08:00"
+        }
+      ]
+    },
+    {
+      "id": "whole-item-B",
+      "operation": "restrict",
+      "refs": [
+        "post-B"
+      ],
+      "request": {
+        "publication": "post-B",
+        "regions": [
+          "east"
+        ],
+        "range_ms": [
+          0,
+          60000
+        ]
+      },
+      "response_status": 202,
+      "observations": [
+        {
+          "state": "rejected",
+          "reason": "不支持按地区限制"
+        }
+      ]
+    }
+  ]
+}

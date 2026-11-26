@@ -1,0 +1,169 @@
+{
+  "synthetic": true,
+  "records": [
+    {
+      "id": "film-A",
+      "kind": "work",
+      "refs": [],
+      "duration_ms": 7200000
+    },
+    {
+      "id": "right-A",
+      "kind": "rights",
+      "refs": [
+        "film-A"
+      ],
+      "owner": "owner-A",
+      "regions": [
+        "east",
+        "south"
+      ],
+      "media": [
+        "streaming"
+      ],
+      "start": "2026-12-01T00:00:00+08:00",
+      "end": "2027-01-01T00:00:00+08:00"
+    },
+    {
+      "id": "right-B",
+      "kind": "rights",
+      "refs": [
+        "film-A"
+      ],
+      "owner": "owner-B",
+      "regions": [
+        "south"
+      ],
+      "media": [
+        "streaming"
+      ],
+      "start": "2026-12-01T00:00:00+08:00",
+      "end": "2027-01-01T00:00:00+08:00"
+    },
+    {
+      "id": "mandate-A",
+      "kind": "mandate",
+      "refs": [
+        "right-A"
+      ],
+      "agent": "agent-A",
+      "revoked_at": "2026-12-08T10:00:00+08:00"
+    },
+    {
+      "id": "mandate-B",
+      "kind": "mandate",
+      "refs": [
+        "right-B"
+      ],
+      "agent": "agent-B",
+      "revoked_at": null
+    },
+    {
+      "id": "post-A",
+      "kind": "publication",
+      "refs": [
+        "film-A"
+      ],
+      "platform": "platform-A",
+      "link": "local://clips/alpha",
+      "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "range_ms": [
+        0,
+        60000
+      ]
+    },
+    {
+      "id": "post-B",
+      "kind": "publication",
+      "refs": [
+        "film-A"
+      ],
+      "platform": "platform-B",
+      "link": "local://clips/beta",
+      "content_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "range_ms": [
+        0,
+        60000
+      ]
+    },
+    {
+      "id": "claim-A",
+      "kind": "notice_input",
+      "refs": [
+        "mandate-A",
+        "post-A"
+      ],
+      "regions": [
+        "east",
+        "south"
+      ],
+      "range_ms": [
+        0,
+        60000
+      ],
+      "submitted_by": "agent-A"
+    },
+    {
+      "id": "claim-B",
+      "kind": "notice_input",
+      "refs": [
+        "mandate-B",
+        "post-A"
+      ],
+      "regions": [
+        "south"
+      ],
+      "range_ms": [
+        30000,
+        60000
+      ],
+      "submitted_by": "agent-B"
+    },
+    {
+      "id": "objection-B",
+      "kind": "objection_input",
+      "refs": [
+        "claim-B"
+      ],
+      "uploader": "uploader-A",
+      "license_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "regions": [
+        "south"
+      ],
+      "range_ms": [
+        30000,
+        60000
+      ],
+      "received": "2026-12-07T10:00:00+08:00"
+    },
+    {
+      "id": "delivery-B",
+      "kind": "delivery_fact",
+      "refs": [
+        "objection-B"
+      ],
+      "received_by": "agent-B",
+      "at": "2026-12-08T09:00:00+08:00"
+    },
+    {
+      "id": "calendar-A",
+      "kind": "calendar",
+      "refs": [],
+      "timezone": "Asia/Shanghai",
+      "holidays": [
+        "2026-12-09"
+      ],
+      "make_up_days": [
+        "2026-12-12"
+      ]
+    }
+  ],
+  "principals": {
+    "agent-A": "owner-A",
+    "agent-B": "owner-B",
+    "legal-A": "legal",
+    "liaison-A": "platform",
+    "reviewer-A": "independent-review",
+    "uploader-A": "post-A"
+  }
+}
